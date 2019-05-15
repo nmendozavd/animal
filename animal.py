@@ -1,3 +1,4 @@
+"""
 class Animal(object):
 	def __init__(self, name):
 		self.name = name
@@ -44,3 +45,35 @@ def displayHealth(self):
 
 dragon = Dragon('Nightwing')
 dragon.fly().displayHealth()
+"""
+
+class Animal(object):
+    def __init__(self, name):
+        self.name = name
+        self.health = 100
+    def walk(self):
+        self.health -= 1
+        return self
+    def run(self):
+        self.health -= 5
+        return self
+    def displayHealth(self):
+        print "Health: " + str(self.health)
+
+class Dog(Animal):
+    def pet(self):
+        self.health = 150
+        self.health += 5
+        return self
+class Dragon(Animal):
+    def fly(self):
+        self.health = 170
+        self.health -= 10
+        print "I am a Dragon"   
+        return self     
+
+
+animal1 = Dragon("GOT")
+animal1.walk().fly()
+animal1.displayHealth()
+
